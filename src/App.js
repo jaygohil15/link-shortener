@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [shortUrl, setShortUrl] = useState('')
+
+  const handleCreateLink = (e) => {
+    e.preventDefault()
+    console.log(e.target[0].value)
+    fetch(process.env.REACT_APP_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.REACT_APP_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ 'long_url': e.target[0].value, "domain": "bit.ly" })
+    })
+      .then(res => res.json())
+      .then(data => {
+        setShortUrl(data.link)
+      })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form onSubmit={handleCreateLink} >
+        <input placeholder='Enter Long Link' />
+        <input type='submit' value='Generate' />
+      </form>
+      <p>{shortUrl}</p>
     </div>
   );
 }
