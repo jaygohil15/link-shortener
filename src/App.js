@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
-function App() {
+const App = () => {
 
   const [shortUrl, setShortUrl] = useState('')
 
@@ -23,12 +23,12 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <form onSubmit={handleCreateLink} >
-        <input placeholder='Enter Long Link' />
-        <input type='submit' value='Generate' />
+    <div className="app">
+      <form onSubmit={handleCreateLink} className='form'>
+        <input type='text' placeholder='Enter Link' className='text-input' />
+        <button type='submit' className='submit-input' >Generate</button>
       </form>
-      <p>{shortUrl}</p>
+      <div className='result-shortUrl'>{shortUrl}jjjj</div>
     </div>
   );
 }
