@@ -1,11 +1,18 @@
 .app {
    margin: 8rem auto;
 }
+.heading {
+   font-size: 1.5rem;
+   text-align: center;
+   color: #3D155F;
+   font-weight: 600;
+}
 .form {
    display: flex;
    flex-direction: column;
 }
 .text-input {
+   width: 30rem;
    margin: 1rem auto;
    font-size: 1.5rem;
    border: 3px solid rgb(17, 124, 124);
@@ -14,16 +21,40 @@
 }
 .submit-input {
    padding: 0.5rem 0.5rem;
-   color: #F4DF4EFF;
+   color: #F9D342;
    border: none;
-   background-color: #949398FF;
+   background-color: #292826;
    font-size: 1.5rem;
+   font-weight: 600;
    width: 10rem;
    margin: 1rem auto;
    box-shadow: 0.2rem 0.3rem 0.3rem;
 }
 .submit-input:hover {
    cursor: pointer;
-   color: #949398FF;
-   background-color: #F4DF4EFF;
+   color: #292826;
+   background-color: #F9D342;
+}
+.result-shorturl {
+   margin: 1rem auto;
+   text-align: center;
+   font-size: 1.5rem;
+   color: cornflowerblue;
+}
+.copy-text {
+   color: #CCF381;
+   font-size: 1rem;
+   background-color: #4831D4;
+   padding: 0.3rem;
+   border-radius: 0.2rem;
+}
+.copy-text:hover {
+   cursor: pointer;
+   background-color: #CCF381;
+   color: #4831D4;
+}
+@media only screen and (max-width: 600px) {
+   .text-input{
+      width: 15rem;
+   }
 }
